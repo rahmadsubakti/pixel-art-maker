@@ -1,0 +1,18 @@
+.tile {
+	height: 15px;
+	width: 15px;
+	border-top: 1px;
+	border-left: 1px;
+	border-right: 0;
+	border-bottom: 0;
+	border-style: solid;
+	border-color: #000;
+	display: inline-block;
+	box-sizing: border-box;
+}
+
+.tile:last-child {
+	border-right: 1px;
+	border-style: solid;
+	border-color: #000;
+}

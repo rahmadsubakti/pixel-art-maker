@@ -1,0 +1,37 @@
+.btn-group {
+	display: flex;
+	width: 100%;
+	justify-content: space-around;
+}
+
+.btn-group button {
+	border: 1px solid #2E86AD;
+	background: #fff;
+	color: #2E86AD;
+	font-size: 18px;
+	border-radius: 3px;
+	padding: 6px;
+}
+
+.btn-group button:hover {
+	background: #2E86AD;
+	color: #fff;
+	cursor: pointer;
+}
+
+.btn-group button:disabled, .btn-group button[disabled]:hover {
+	color: #86C9E6;
+	cursor: default;
+	background: #fff;
+}
+
+.color-palette {
+	position: absolute;
+	bottom: 80px;
+}
+
+.color {
+	width: 16px;
+	height: 16px;
+	border: 1px solid #000;
+}

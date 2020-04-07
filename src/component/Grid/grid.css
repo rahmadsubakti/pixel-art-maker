@@ -1,0 +1,11 @@
+.row {
+	box-sizing: border-box;
+	display: block;
+	height: 15px;
+}
+
+.row:last-child .tile {
+	border-bottom: 1px;
+	border-style: solid;
+	border-color: #000;
+}
