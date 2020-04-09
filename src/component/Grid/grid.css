@@ -6,6 +6,5 @@
 
 .row:last-child .tile {
 	border-bottom: 1px;
-	border-style: solid;
-	border-color: #000;
+	border-bottom-style: solid;
 }

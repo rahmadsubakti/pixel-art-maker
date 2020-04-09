@@ -13,6 +13,5 @@
 
 .tile:last-child {
 	border-right: 1px;
-	border-style: solid;
-	border-color: #000;
+	border-right-style: solid;
 }

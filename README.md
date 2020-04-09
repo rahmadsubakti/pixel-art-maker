@@ -1,6 +1,8 @@
-#Pixel Art Maker
+# Pixel Art Maker
 
 Pixel Art Maker created with React JS
+
+![](pixel-art-maker-demo.gif)
 
 ## Feature
 <ul>
