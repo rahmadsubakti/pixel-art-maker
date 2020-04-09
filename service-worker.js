@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/pixel-art-maker/precache-manifest.316bdd14455a6c391b565842e61fda4d.js"
+  "/pixel-art-maker/precache-manifest.16856a2dcd7f5e7caee40a2eacf1aa32.js"
 );
 
 self.addEventListener('message', (event) => {
