@@ -1,32 +1,23 @@
 import React from 'react';
 import { CompactPicker } from 'react-color';
 import { Grid } from 'component/Grid/Grid';
-import { ControlGroup } from 'component/ControlGroup/ControlGroup'
+import { ControlGroup } from 'component/ControlGroup/ControlGroup';
+import { Modal } from 'component/Modal/Modal';
+import { OptionGrid } from 'component/OptionGrid/OptionGrid';
 import createGrid from 'utils/genGrid';
 import saveAs from 'file-saver'; 
 import logo from './logo.svg';
 import './App.css';
 
-// How to import font awesome from react component
-// Without editing index.html
 class App extends React.Component {
-  /*constructor(props) {
-    super(props);
-    this.grid = createGrid(16, '#fff');
-    this.state = {grid: this.grid, currentColor: '#fff'};
-    this.changeCurrentColor = this.changeCurrentColor.bind(this);
-    this.down = false;
-    this.mouseDown = this.mouseDown.bind(this);
-    this.mouseUp = this.mouseUp.bind(this);
-    this.changeTileColor = this.changeTileColor.bind(this);
-    this.clickTileColor = this.clickTileColor.bind(this);
-    this.changeColor = this.changeColor.bind(this);
-  }*/
+
   constructor(props) {
     super(props);
     this.grid = createGrid(16, '#ffffff') // make 16 into dynamic number
     this.state = {
       currentColor: '#ffffff',
+      numberTiles: 0,
+      showModal: true,
       grid: this.grid
     }
     this.down = false;
@@ -64,10 +55,6 @@ class App extends React.Component {
     ctx.putImageData(imgData, 0, 0);
     cvs.toBlob(blob => saveAs(blob, 'output.png'), 'image/png'); //output.png is filename, depend on input text
   }
-  /*
-  changeCurrentColor(color) {
-  	this.setState({currentColor: color.hex})
-  }*/
 
   changeColor(e) {
   	let [row, col] = e.target.getAttribute('value').split(' ')
@@ -101,20 +88,49 @@ class App extends React.Component {
 		this.changeColor(e)
 	}
 
+  handleChange(e) {
+    console.log(parseInt(e.target.value))
+    this.setState({numberTiles: parseInt(e.target.value)})
+  }
+
+  showModal() {
+    this.setState({showModal: true})
+  }
+
+  confirmClick() {
+    this.grid = createGrid(this.state.numberTiles, '#ffffff');
+    this.setState({grid: this.grid, showModal: false})
+  }
+
+  cancelClick() {
+    this.setState({showModal: false})
+  }
+
   render() {
   	return (
       <React.Fragment>
+        {this.state.showModal &&
+          <Modal>
+            <OptionGrid 
+              numberTiles={this.state.numberTiles}
+              onChange={this.handleChange.bind(this)}
+              confirmClick={this.confirmClick.bind(this)}
+              cancelClick={this.cancelClick.bind(this)}
+            />
+          </Modal>
+        }
   		  <div className="grid-container">
           <Grid 
   				  grid={this.state.grid}
-  				  color='red'
+  				  color={this.state.currentColor}
   				  onMouseDown={this.mouseDown.bind(this)}
   				  onMouseUp={this.mouseUp.bind(this)}
   				  changeColor={this.changeTileColor.bind(this)}
   				  clickColor={this.clickTileColor.bind(this)}
   			 />
   		  </div>
-        <ControlGroup 
+        <ControlGroup
+          new={this.showModal.bind(this)} 
           getColor={this.getColor.bind(this)}
           clearGrid={this.clearGrid.bind(this)}
           saveImage={this.saveImage.bind(this)}

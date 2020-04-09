@@ -8,6 +8,7 @@ export class ControlGroup extends React.Component {
 			<div className="control-container">
 
 				<ButtonGroup 
+					new={this.props.new}
 					getColor={this.props.getColor}
 					clearGrid={this.props.clearGrid}
 					saveImage={this.props.saveImage} 

@@ -1,0 +1,47 @@
+select {
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+select ~ button {
+	display: inline-block;
+	width: 45%;
+	border: none;
+	padding: 10px;
+	background: #ffffff;
+	font-weight: 600;
+}
+
+select ~ button:first-of-type {
+	color: #2571C0;
+	border: 1px solid #2571C0;
+	margin-right: 10%;
+}
+
+select ~ button:last-child {
+	color: #CA2123;
+	border: 1px solid #CA2123;
+}
+
+select ~ button:hover {
+	cursor: pointer;
+	color: #ffffff;
+}
+
+select ~ button:first-of-type:hover {
+	background: #2571C0;
+}
+
+select ~ button:first-of-type[disabled] {
+	color: #87C2FF;
+	border: 1px solid #87C2FF;
+}
+
+select ~ button:first-of-type[disabled]:hover {
+	background: #ffffff;
+	cursor: default;
+}
+
+select ~ button:last-of-type:hover {
+	background: #CA2123;
+}

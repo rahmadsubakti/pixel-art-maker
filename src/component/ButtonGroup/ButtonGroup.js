@@ -26,7 +26,7 @@ export class ButtonGroup extends React.Component {
 		return (
 			<div className="btn-group">
 
-            	<button title="New Art">
+            	<button title="New Art" onClick={this.props.new}>
             		<FontAwesomeIcon icon={faFile} />
             	</button>
 
