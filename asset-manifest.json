@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/rahmadsubakti.github.io/pixel-art-maker/static/css/main.5e48e96a.chunk.css",
+    "main.js": "/rahmadsubakti.github.io/pixel-art-maker/static/js/main.16680cf2.chunk.js",
+    "main.js.map": "/rahmadsubakti.github.io/pixel-art-maker/static/js/main.16680cf2.chunk.js.map",
+    "runtime-main.js": "/rahmadsubakti.github.io/pixel-art-maker/static/js/runtime-main.41db13b3.js",
+    "runtime-main.js.map": "/rahmadsubakti.github.io/pixel-art-maker/static/js/runtime-main.41db13b3.js.map",
+    "static/js/2.a0e88a23.chunk.js": "/rahmadsubakti.github.io/pixel-art-maker/static/js/2.a0e88a23.chunk.js",
+    "static/js/2.a0e88a23.chunk.js.map": "/rahmadsubakti.github.io/pixel-art-maker/static/js/2.a0e88a23.chunk.js.map",
+    "index.html": "/rahmadsubakti.github.io/pixel-art-maker/index.html",
+    "precache-manifest.8588186ae5240eba0781960fc1d322b2.js": "/rahmadsubakti.github.io/pixel-art-maker/precache-manifest.8588186ae5240eba0781960fc1d322b2.js",
+    "service-worker.js": "/rahmadsubakti.github.io/pixel-art-maker/service-worker.js",
+    "static/css/main.5e48e96a.chunk.css.map": "/rahmadsubakti.github.io/pixel-art-maker/static/css/main.5e48e96a.chunk.css.map",
+    "static/js/2.a0e88a23.chunk.js.LICENSE.txt": "/rahmadsubakti.github.io/pixel-art-maker/static/js/2.a0e88a23.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.41db13b3.js",
+    "static/js/2.a0e88a23.chunk.js",
+    "static/css/main.5e48e96a.chunk.css",
+    "static/js/main.16680cf2.chunk.js"
+  ]
+}
