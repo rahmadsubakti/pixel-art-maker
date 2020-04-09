@@ -11,7 +11,11 @@ export class ControlGroup extends React.Component {
 					new={this.props.new}
 					getColor={this.props.getColor}
 					clearGrid={this.props.clearGrid}
-					saveImage={this.props.saveImage} 
+					isUndo={this.props.isUndo}
+					handleUndo={this.props.handleUndo}
+					isRedo={this.props.isRedo}
+					handleRedo={this.props.handleRedo}
+					saveImage={this.props.saveImage}
 				/>
 
           		<div className="name-container">

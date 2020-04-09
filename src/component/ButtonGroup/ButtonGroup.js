@@ -50,11 +50,11 @@ export class ButtonGroup extends React.Component {
             		<FontAwesomeIcon icon={faEraser} />
             	</button>
             	
-            	<button title="Undo" disabled={true}>
+            	<button title="Undo" onClick={this.props.handleUndo} disabled={this.props.isUndo}>
             		<FontAwesomeIcon icon={faUndoAlt} />
             	</button>
             	
-            	<button title="Redo" disabled={true}>
+            	<button title="Redo" onClick={this.props.handleRedo} disabled={this.props.isRedo}>
             		<FontAwesomeIcon icon={faRedoAlt} />
             	</button>
             	

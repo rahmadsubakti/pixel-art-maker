@@ -6,6 +6,7 @@ import { Modal } from 'component/Modal/Modal';
 import { OptionGrid } from 'component/OptionGrid/OptionGrid';
 import saveImage from 'utils/saveImage';
 import createGrid from 'utils/genGrid';
+import { addToUndoStack, undo, redo } from 'utils/undoRedo';
 import logo from './logo.svg';
 import './App.css';
 
@@ -19,8 +20,10 @@ class App extends React.Component {
       numberTiles: 0,
       showModal: true,
       name: 'Untitled',
-      grid: this.grid
+      grid: this.grid,
     }
+    this.undoStack = [];
+    this.redoStack = [];
     this.down = false;
     this.changeColor = this.changeColor.bind(this);
   }
@@ -57,7 +60,10 @@ class App extends React.Component {
 
   mouseUp(e) {
   	e.preventDefault()
-  	this.down = false
+  	this.down = false;
+    const { grid } = this.state;
+    addToUndoStack(grid, this.undoStack, this.redoStack);
+    this.setState({})
   }
 
   changeTileColor(e) {
@@ -80,7 +86,12 @@ class App extends React.Component {
 
   confirmClick() {
     this.grid = createGrid(this.state.numberTiles, '#ffffff');
-    this.setState({grid: this.grid, showModal: false, name: "Untitled"})
+    this.undoStack.push(this.grid);
+    this.setState({
+      grid: this.grid, 
+      showModal: false, 
+      name: "Untitled",
+    })
   }
 
   cancelClick() {
@@ -89,6 +100,16 @@ class App extends React.Component {
 
   changeName(e) {
     this.setState({name: e.target.value})
+  }
+
+  handleUndo() {
+    const lastEl = undo(this.undoStack, this.redoStack);
+    this.setState({grid: lastEl});
+  }
+
+  handleRedo() {
+    const lastEl = redo(this.undoStack, this.redoStack);
+    this.setState({grid: lastEl});
   }
 
   render() {
@@ -118,6 +139,10 @@ class App extends React.Component {
           new={this.showModal.bind(this)} 
           getColor={this.getColor.bind(this)}
           clearGrid={this.clearGrid.bind(this)}
+          isUndo={this.undoStack.length < 2}
+          handleUndo={this.handleUndo.bind(this)}
+          isRedo={this.redoStack.length === 0}
+          handleRedo={this.handleRedo.bind(this)}
           saveImage={this.saveImageEvent.bind(this)}
           changeName={this.changeName.bind(this)}
           name={this.state.name}
