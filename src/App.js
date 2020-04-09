@@ -4,8 +4,8 @@ import { Grid } from 'component/Grid/Grid';
 import { ControlGroup } from 'component/ControlGroup/ControlGroup';
 import { Modal } from 'component/Modal/Modal';
 import { OptionGrid } from 'component/OptionGrid/OptionGrid';
+import saveImage from 'utils/saveImage';
 import createGrid from 'utils/genGrid';
-import saveAs from 'file-saver'; 
 import logo from './logo.svg';
 import './App.css';
 
@@ -13,11 +13,12 @@ class App extends React.Component {
 
   constructor(props) {
     super(props);
-    this.grid = createGrid(16, '#ffffff') // make 16 into dynamic number
+    this.grid = [];
     this.state = {
       currentColor: '#ffffff',
       numberTiles: 0,
       showModal: true,
+      name: 'Untitled',
       grid: this.grid
     }
     this.down = false;
@@ -32,30 +33,6 @@ class App extends React.Component {
     this.setState({grid: this.grid});
   }
 
-  saveImage() {
-    const concat = (xs, ys) => xs.concat(ys);
-    const hexToRGBA = hexStr => [
-      parseInt(hexStr.substr(1,2), 16),
-      parseInt(hexStr.substr(3,2), 16),
-      parseInt(hexStr.substr(5,2), 16),
-      255
-    ];
-
-    const grid = this.state.grid;
-
-    const flattenedRGB = grid
-      .reduce(concat)
-      .map(hexToRGBA)
-      .reduce(concat);
-
-    const cvs = document.createElement('canvas');
-    cvs.width = cvs.height = 16; // dynamic, depend on number of tiles
-    const ctx = cvs.getContext('2d');
-    const imgData = new ImageData(Uint8ClampedArray.from(flattenedRGB), 16, 16);
-    ctx.putImageData(imgData, 0, 0);
-    cvs.toBlob(blob => saveAs(blob, 'output.png'), 'image/png'); //output.png is filename, depend on input text
-  }
-
   changeColor(e) {
   	let [row, col] = e.target.getAttribute('value').split(' ')
 		row = parseInt(row);
@@ -66,6 +43,11 @@ class App extends React.Component {
 
 		grid[row] = rowArr;
 		this.setState({grid: grid})
+  }
+
+  saveImageEvent() {
+    const {grid, name} = this.state
+    saveImage(grid, name)
   }
 
   mouseDown(e) {
@@ -89,7 +71,6 @@ class App extends React.Component {
 	}
 
   handleChange(e) {
-    console.log(parseInt(e.target.value))
     this.setState({numberTiles: parseInt(e.target.value)})
   }
 
@@ -99,11 +80,15 @@ class App extends React.Component {
 
   confirmClick() {
     this.grid = createGrid(this.state.numberTiles, '#ffffff');
-    this.setState({grid: this.grid, showModal: false})
+    this.setState({grid: this.grid, showModal: false, name: "Untitled"})
   }
 
   cancelClick() {
     this.setState({showModal: false})
+  }
+
+  changeName(e) {
+    this.setState({name: e.target.value})
   }
 
   render() {
@@ -133,7 +118,9 @@ class App extends React.Component {
           new={this.showModal.bind(this)} 
           getColor={this.getColor.bind(this)}
           clearGrid={this.clearGrid.bind(this)}
-          saveImage={this.saveImage.bind(this)}
+          saveImage={this.saveImageEvent.bind(this)}
+          changeName={this.changeName.bind(this)}
+          name={this.state.name}
         />
       </React.Fragment>
   	)

@@ -15,7 +15,7 @@ export class ControlGroup extends React.Component {
 				/>
 
           		<div className="name-container">
-            		<input type="text" defaultValue="Untitled" />
+            		<input type="text" value={this.props.name} onChange={this.props.changeName} />
           		</div>
         	</div>
 		)
