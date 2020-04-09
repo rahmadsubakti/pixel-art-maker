@@ -1,5 +1,4 @@
 import React from 'react';
-import { CompactPicker } from 'react-color';
 import { Grid } from 'component/Grid/Grid';
 import { ControlGroup } from 'component/ControlGroup/ControlGroup';
 import { Modal } from 'component/Modal/Modal';
@@ -7,7 +6,6 @@ import { OptionGrid } from 'component/OptionGrid/OptionGrid';
 import saveImage from 'utils/saveImage';
 import createGrid from 'utils/genGrid';
 import { addToUndoStack, undo, redo } from 'utils/undoRedo';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends React.Component {
@@ -16,7 +14,7 @@ class App extends React.Component {
     super(props);
     this.grid = [];
     this.state = {
-      currentColor: '#ffffff',
+      currentColor: '#333333',
       numberTiles: 0,
       showModal: true,
       name: 'Untitled',
@@ -33,6 +31,7 @@ class App extends React.Component {
   }
 
   clearGrid() {
+    addToUndoStack(this.grid, this.undoStack, this.redoStack)
     this.setState({grid: this.grid});
   }
 
@@ -128,7 +127,6 @@ class App extends React.Component {
   		  <div className="grid-container">
           <Grid 
   				  grid={this.state.grid}
-  				  color={this.state.currentColor}
   				  onMouseDown={this.mouseDown.bind(this)}
   				  onMouseUp={this.mouseUp.bind(this)}
   				  changeColor={this.changeTileColor.bind(this)}
@@ -136,7 +134,8 @@ class App extends React.Component {
   			 />
   		  </div>
         <ControlGroup
-          new={this.showModal.bind(this)} 
+          newArt={this.showModal.bind(this)}
+          currentColor={this.state.currentColor} 
           getColor={this.getColor.bind(this)}
           clearGrid={this.clearGrid.bind(this)}
           isUndo={this.undoStack.length < 2}

@@ -2,29 +2,19 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './grid.css'
 
-import createGrid from 'utils/genGrid';
 import { Tile } from 'component/Tile/Tile';
 
-
-export class Grid extends React.Component {
-	constructor(props) {
-		super(props)
-		//this.down = false
-		//this.changeColor = this.changeColor.bind(this);
-		//this.clickColor= this.clickColor.bind(this);
-	}
-
-	render() {
-		const grid = this.props.grid;
-		return (
-			<div onMouseUp={this.props.onMouseUp} onMouseDown={this.props.onMouseDown}>
+export function Grid(props) {
+	const { grid, onMouseUp, onMouseDown, changeColor, clickColor } = props;
+	return (
+			<div onMouseUp={onMouseUp} onMouseDown={onMouseDown}>
 				{grid.map((row, i) =>
 					<div className="row" key={'row'+i}>
 						{row.map((color, j) => 
 							<Tile 
-								onMouseEnter={this.props.changeColor} 
+								onMouseEnter={changeColor} 
 								bgColor={color} 
-								onMouseDown={this.props.clickColor} 
+								onMouseDown={clickColor} 
 								key={`tile${i}${j}`}
 								value={`${i} ${j}`}
 							/>
@@ -32,12 +22,13 @@ export class Grid extends React.Component {
 					</div>
 				)}
 			</div>
-				
-
-		)
-	}
+	)
 }
 
 Grid.propTypes = {
-	grid: PropTypes.array
+	grid: PropTypes.array.isRequired,
+	onMouseUp: PropTypes.func.isRequired,
+	onMouseDown: PropTypes.func.isRequired,
+	changeColor: PropTypes.func.isRequired,
+	clickColor: PropTypes.func.isRequired
 }
