@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/pixel-art-maker/static/css/main.393c5eee.chunk.css",
+    "main.css": "/pixel-art-maker/static/css/main.29639c98.chunk.css",
     "main.js": "/pixel-art-maker/static/js/main.a7690472.chunk.js",
     "main.js.map": "/pixel-art-maker/static/js/main.a7690472.chunk.js.map",
     "runtime-main.js": "/pixel-art-maker/static/js/runtime-main.0582a8a5.js",
@@ -8,15 +8,15 @@
     "static/js/2.a0e88a23.chunk.js": "/pixel-art-maker/static/js/2.a0e88a23.chunk.js",
     "static/js/2.a0e88a23.chunk.js.map": "/pixel-art-maker/static/js/2.a0e88a23.chunk.js.map",
     "index.html": "/pixel-art-maker/index.html",
-    "precache-manifest.024caee6f26147f4c174f457f092053e.js": "/pixel-art-maker/precache-manifest.024caee6f26147f4c174f457f092053e.js",
+    "precache-manifest.7e5ef658fd0531d2c3ae89949a97d456.js": "/pixel-art-maker/precache-manifest.7e5ef658fd0531d2c3ae89949a97d456.js",
     "service-worker.js": "/pixel-art-maker/service-worker.js",
-    "static/css/main.393c5eee.chunk.css.map": "/pixel-art-maker/static/css/main.393c5eee.chunk.css.map",
+    "static/css/main.29639c98.chunk.css.map": "/pixel-art-maker/static/css/main.29639c98.chunk.css.map",
     "static/js/2.a0e88a23.chunk.js.LICENSE.txt": "/pixel-art-maker/static/js/2.a0e88a23.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.0582a8a5.js",
     "static/js/2.a0e88a23.chunk.js",
-    "static/css/main.393c5eee.chunk.css",
+    "static/css/main.29639c98.chunk.css",
     "static/js/main.a7690472.chunk.js"
   ]
 }
