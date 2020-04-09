@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "995f10225d4820c671cf5b9f8f8000bf",
+    "revision": "758613f27738540811c06d60f47eaee2",
     "url": "/pixel-art-maker/index.html"
   },
   {
-    "revision": "e3bd9d928b88db87343c",
-    "url": "/pixel-art-maker/static/css/main.6ee8cb36.chunk.css"
+    "revision": "d96e22580de114186be2",
+    "url": "/pixel-art-maker/static/css/main.5e48e96a.chunk.css"
   },
   {
     "revision": "6e9f05e7ec68e99ec1d6",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/pixel-art-maker/static/js/2.a0e88a23.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "e3bd9d928b88db87343c",
+    "revision": "d96e22580de114186be2",
     "url": "/pixel-art-maker/static/js/main.a7690472.chunk.js"
   },
   {
